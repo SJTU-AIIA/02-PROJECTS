@@ -1,0 +1,9 @@
+{
+    "name": "PROJECT_NAME",
+    "authors": ["@user1", "@user2"],
+    "created": "2025-01-01T12:00:00Z",
+    "last_updated": "2025-01-01T12:00:00Z",
+    "license": "MIT",
+    "tags": ["llm", "nlp"],
+    "dependencies": ["transformers>=4.0.0"]
+  }
