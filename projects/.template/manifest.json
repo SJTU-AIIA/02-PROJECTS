@@ -1,7 +1,9 @@
 {
-    "name": "PROJECT_NAME",
-    "authors": ["@user1", "@user2"],
-    "license": "MIT",
-    "tags": ["llm", "nlp"],
-    "dependencies": ["transformers>=4.0.0"]
-  }
+  "name": "PROJECT",
+  "authors": ["@user"],
+  "created": "2023-08-25T12:00:00Z",
+  "image": "ghcr.io/sjtu-aiia/PROJECT:latest",  
+  "ports": ["8000:8000"],                           
+  "volumes": ["./data:/app/data"],                  
+  "env_vars": ["API_KEY=secret"]                       
+}
