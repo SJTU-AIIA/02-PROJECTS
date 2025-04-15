@@ -2,7 +2,7 @@
 ## Instructions
 ### 1. Copy Template:
 ```bash
-cp -r projects/PROJECT_TEMPLATE projects/my_project
+cp -r projects/.template projects/my_project
 ```
 ### 2. Edit `manifest.json`:
 ```json
