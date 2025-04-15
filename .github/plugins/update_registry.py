@@ -10,6 +10,8 @@ for manifest in glob.glob("projects/**/manifest.json"):
         data["path"] = os.path.dirname(manifest)
         # Add last_updated timestamp
         data["last_updated"] = datetime.now(utc_8).isoformat()
+        if data["created"] == "":
+            data["created"] = data["last_updated"]
         registry["projects"].append(data)
 
 with open("projects/_registry.json", "w") as f:

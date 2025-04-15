@@ -1,6 +1,6 @@
 {
-    "name": "PROJECT_NAME",
-    "authors": ["@user1", "@user2"],
+    "name": "DFS RAG model with Streamlit Widget",
+    "authors": ["@DysonFabienSun"],
     "license": "MIT",
     "tags": ["llm", "nlp"],
     "dependencies": ["transformers>=4.0.0"]
