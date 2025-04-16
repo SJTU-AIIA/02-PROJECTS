@@ -21,7 +21,8 @@ schema = {
 # Note: the schema is not complete. It only checks for the required fields and their types.
 
 def validate(manifest_path, author):
-    manifest_path = ROOT_DIR / manifest_path
+    # manifest_path = ROOT_DIR / manifest_path
+    
     try:
         with open(manifest_path) as f:
             data = json.load(f)
