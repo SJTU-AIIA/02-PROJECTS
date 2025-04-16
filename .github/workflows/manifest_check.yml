@@ -1,5 +1,10 @@
 name: Manifest Check
-on: push
+on:
+  push:
+    paths:
+      - 'projects/**'
+    branches:
+      - main
 
 jobs:
   validate:
