@@ -37,6 +37,7 @@ jobs:
           git push
 
   validate-PR-privileges:
+    needs: update
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
