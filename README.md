@@ -1,13 +1,14 @@
 # PROJECTS PANEL
 ## Usage of AIIA-CLI for Project Management
 Enables much easier use of certain key functions in the projects repo. Developed and maintained by SJTU-AIIA.
+
 To use:
 ### Install:
 ```bash
 pip install aiia-cli
 ```
 
-**IMPORTANT NOTE:** Even though the module is called aiia-cli, the main cli interface is operated by `proj-cli`.
+**IMPORTANT NOTE:** Even though the module is called aiia-cli, the main cli interface is operated via the command `proj-cli`.
 
 ### Create New Project:
 Make sure your command window is in the ROOT of the repo.
