@@ -2,8 +2,9 @@ import os
 import sys
 import json
 from git import Repo
+from baselib import ROOT_DIR
 
-def validate_manifest(pr_author):
+def validate_PR(pr_author):
     # this assumes the pr_author aka visitor is NOT an admin
     repo = Repo(".")
     modified_files = [diff.a_path for diff in repo.head.commit.diff()]
@@ -11,7 +12,7 @@ def validate_manifest(pr_author):
     for file_path in modified_files:
         # Get the project folder (e.g., /projects/project1/file.txt → project1)
         project_folder = file_path.split("/")[1]  # Adjust based on your structure
-        manifest_path = f"projects/{project_folder}/manifest.json"
+        manifest_path = ROOT_DIR / f"projects/{project_folder}/manifest.json"
 
         if not os.path.exists(manifest_path):
             print(f"Manifest not found in {project_folder}")
@@ -29,4 +30,4 @@ def validate_manifest(pr_author):
     sys.exit(0)
 
 if __name__ == "__main__":
-    validate_manifest(sys.argv[1])
+    validate_PR(sys.argv[1])

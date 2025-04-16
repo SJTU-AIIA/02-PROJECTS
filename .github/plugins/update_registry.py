@@ -1,5 +1,6 @@
 import json, os, glob, sys
 from datetime import datetime, timezone, timedelta
+from baselib import ROOT_DIR # note: we are NOT in the root directory. Add ROOT_DIR in front of paths to access the whole repo.
 
 def update_registry():
     """
@@ -8,7 +9,7 @@ def update_registry():
     utc_8 = timezone(timedelta(hours=8))
 
     registry = {"projects": []}
-    for manifest in glob.glob("projects/**/manifest.json"):
+    for manifest in glob.glob(ROOT_DIR / "projects/**/manifest.json"):
         with open(f"projects/{manifest}/manifest.json") as f:
             data = json.load(f)
             data["path"] = os.path.dirname(manifest)
@@ -18,7 +19,7 @@ def update_registry():
                 data["created"] = data["last_updated"]
             registry["projects"].append(data)
 
-    with open("projects/_registry.json", "w") as f:
+    with open(ROOT_DIR / "projects/_registry.json", "w") as f:
         json.dump(registry, f, indent=2, sort_keys=True)
 
 if __name__ == "__main__":
