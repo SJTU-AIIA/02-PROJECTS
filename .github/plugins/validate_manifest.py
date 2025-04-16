@@ -3,14 +3,22 @@ from baselib import ROOT_DIR  # note: we are NOT in the root directory. Add ROOT
 
 schema = {
     "type": "object",
-    "required": ["name", "datetime", "author", "tags"],
+    "required": ["name", "created", "tags", "image", "version"],
     "properties": {
         "name": {"type": "string"},
-        "datetime": {"type": "string", "format": "date-time"}, # ISO 8601
-        "author": {"type": "array"},
-        "tags": {"type": "array"}
+        "created": {"type": "string", "format": "date-time"}, # ISO 8601
+        "tags": {"type": "array"},
+        "image": {"type": "string"},
+        "version": {"type": "string"},
+        "ports": {
+            "type": "object",
+            "patternProperties": {
+                "^\\d+:\\d+$": {"type": "string"},
+            },
+        }
     }
-}
+}    
+# Note: the schema is not complete. It only checks for the required fields and their types.
 
 def validate(manifest_path, author):
     manifest_path = ROOT_DIR / manifest_path

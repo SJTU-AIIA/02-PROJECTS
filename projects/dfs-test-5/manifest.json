@@ -1,12 +1,15 @@
 {
-  "name": "dfs-test-5",
+  "author": [
+    "@DysonFabienSun"
+  ],
   "authors": [],
   "created": "2025-04-16T23:09:17.137172+08:00",
+  "env_vars": {},
+  "image": "",
+  "name": "dfs-test-5",
   "ports": {
     "default": "8000:8000"
   },
-  "env_vars": {},
   "tags": [],
-  "image": "",
   "version": "0.0.0"
 }
