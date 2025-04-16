@@ -20,7 +20,7 @@ jobs:
       
       - name: Validate Manifest
         run: |
-          python .github/plugins/validate_manifest.py "projects/${{ github.ref }} /manifest.json" "${{ env.AUTHOR }}"
+          python .github/plugins/validate_manifest.py "projects/${{ github.ref }}/manifest.json" "${{ env.AUTHOR }}"
 
   update:
     needs: validate
