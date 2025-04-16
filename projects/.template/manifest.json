@@ -2,7 +2,8 @@
   "name": "PROJECT",
   "authors": ["@user"],
   "created": "2023-08-25T12:00:00Z",
-  "image": "",  
+  "image": "",
+  "version": "0.0.0",
   "ports": ["8000:8000"],                       
   "env_vars": ["API_KEY=secret"]                       
 }
