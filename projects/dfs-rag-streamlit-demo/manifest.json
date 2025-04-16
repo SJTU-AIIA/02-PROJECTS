@@ -1,0 +1,10 @@
+{
+  "name": "dfs-rag-streamlit-demo",
+  "authors": [],
+  "created": "2025-04-16T14:07:52.795859+08:00",
+  "ports": {
+    "default": "8000:8000"
+  },
+  "env_vars": {},
+  "tags": []
+}
