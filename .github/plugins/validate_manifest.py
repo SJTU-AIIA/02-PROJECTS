@@ -23,7 +23,7 @@ def validate(manifest_path, author):
     except jsonschema.ValidationError:
         sys.exit(2)
     except:
-        sys.exit(1)
+        sys.exit(3)
 
 if __name__ == "__main__":
     validate(sys.argv[1], sys.argv[2])
