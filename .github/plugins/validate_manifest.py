@@ -20,9 +20,8 @@ def validate(manifest_path, author):
         with open(manifest_path, "w") as f:
             json.dump(data, f, indent=2, sort_keys=True)   # adds author information directly
         sys.exit(0)
-    except jsonschema.ValidationError:
-        sys.exit(2)
-    except:
+    except Exception as e:
+        print(f"Error validating manifest: {e}")
         sys.exit(3)
 
 if __name__ == "__main__":
