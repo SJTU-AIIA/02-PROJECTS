@@ -19,9 +19,25 @@ jobs:
           AUTHOR="${GITHUB_ACTOR}"  # Directly use the actor for a push event
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV
       
-      - name: Validate Manifest
+      - name: Determine Affected Project
+        id: affected-project
         run: |
-          python .github/plugins/validate_manifest.py "projects/${{ github.ref_name }}/manifest.json" "${{ env.AUTHOR }}"
+          # Find the modified project directories
+          MODIFIED_DIRS=$(git diff --name-only $GITHUB_SHA^ $GITHUB_SHA | grep '^projects/' | sed 's|/.*||' | uniq)
+          if [ -z "$MODIFIED_DIRS" ]; then
+            echo "No projects affected."
+            exit 1
+          fi
+          # Join the modified directories to a variable (you can adapt this logic as needed)
+          PROJECTS=$(echo "$MODIFIED_DIRS" | tr '\n' ' ')
+          echo "AFFECTED_PROJECTS=$PROJECTS" >> $GITHUB_ENV
+          echo "Affected projects: $PROJECTS"
+
+      - name: Validate Manifests
+        run: |
+          for PROJECT in ${{ env.AFFECTED_PROJECTS }}; do
+              python .github/plugins/validate_manifest.py "projects/$PROJECT/manifest.json" "${{ env.AUTHOR }}"
+          done
 
   update:
     needs: validate
@@ -35,7 +51,7 @@ jobs:
           git config --global user.name "GitHub Bot"
           git config --global user.email "actions@github.com"
           git add projects/_registry.json
-          git commit -m "[CLI] Update registry for ${{ github.ref_name }}"  # Reference the branch/tag here
+          git commit -m "[CLI] Update registry for ${{ env.AFFECTED_PROJECTS }}"  # Reference the branch/tag here
           git push
 
   validate-push-privileges:
@@ -71,4 +87,4 @@ jobs:
       - name: Validate Push
         if: env.SKIP_VALIDATION != 'true'
         run: |
-          python .github/plugins/validate_push.py --author "${{ github.actor }}"  # Use a different validation script if needed
+          python .github/plugins/validate_push.py "${{ github.actor }}"  # Use a different validation script if needed
