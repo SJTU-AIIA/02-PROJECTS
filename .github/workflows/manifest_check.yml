@@ -15,6 +15,7 @@ jobs:
       - name: Fetch Commit Author
         id: commit-author
         run: |
+          echo "The github.ref_name is: ${{ github.ref_name }}"
           AUTHOR="${GITHUB_ACTOR}"  # Directly use the actor for a push event
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV
       
