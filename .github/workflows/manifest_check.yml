@@ -15,45 +15,44 @@ jobs:
       - name: Fetch Commit Author
         id: commit-author
         run: |
-          echo "The github.ref_name is: ${{ github.ref_name }}"
           AUTHOR="${GITHUB_ACTOR}"  # Directly use the actor for a push event
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV
       
-          - name: Determine Affected Project
-          id: affected-project
-          run: |
-            # Get all changed files in projects/ directory
-            CHANGED_FILES=$(git diff --name-only $GITHUB_SHA^ $GITHUB_SHA | grep '^projects/')
-            
-            # Exit if no project files were changed
-            if [ -z "$CHANGED_FILES" ]; then
+      - name: Determine Affected Project
+        id: affected-project
+        run: |
+          # Get all changed files in projects/ directory
+          CHANGED_FILES=$(git diff --name-only $GITHUB_SHA^ $GITHUB_SHA | grep '^projects/')
+        
+          # Exit if no project files were changed
+          if [ -z "$CHANGED_FILES" ]; then
               echo "::warning::No changes detected in any project directories"
               echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
               exit 0
-            fi
-            
-            # Extract unique project directories (second path component)
-            PROJECT_DIRS=$(echo "$CHANGED_FILES" | awk -F'/' 'NF>1 {print $2}' | sort | uniq)
-            
-            # Verify each project has a manifest.json
-            VALID_PROJECTS=""
-            for DIR in $PROJECT_DIRS; do
+          fi
+        
+          # Extract unique project directories (second path component)
+          PROJECT_DIRS=$(echo "$CHANGED_FILES" | awk -F'/' 'NF>1 {print $2}' | sort | uniq)
+        
+          # Verify each project has a manifest.json
+          VALID_PROJECTS=""
+          for DIR in $PROJECT_DIRS; do
               if [ -f "projects/$DIR/manifest.json" ]; then
-                VALID_PROJECTS="$VALID_PROJECTS $DIR"
+              VALID_PROJECTS="$VALID_PROJECTS $DIR"
               else
-                echo "::warning::Project $DIR is missing manifest.json"
+              echo "::warning::Project $DIR is missing manifest.json"
               fi
-            done
-            
-            # Trim whitespace and set output
-            VALID_PROJECTS=$(echo "$VALID_PROJECTS" | xargs)
-            if [ -z "$VALID_PROJECTS" ]; then
+          done
+        
+          # Trim whitespace and set output
+          VALID_PROJECTS=$(echo "$VALID_PROJECTS" | xargs)
+          if [ -z "$VALID_PROJECTS" ]; then
               echo "::error::No valid projects with manifest.json found"
               exit 1
-            fi
-            
-            echo "AFFECTED_PROJECTS=$VALID_PROJECTS" >> $GITHUB_ENV
-            echo "Valid projects to validate: $VALID_PROJECTS"
+          fi
+        
+          echo "AFFECTED_PROJECTS=$VALID_PROJECTS" >> $GITHUB_ENV
+          echo "Valid projects to validate: $VALID_PROJECTS"
 
       - name: Validate Manifests
         run: |
