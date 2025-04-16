@@ -1,0 +1,37 @@
+name: Manifest Check
+on: pull_request
+
+jobs:
+  validate-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Team Membership
+        id: check-admin
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: members } = await github.rest.teams.listMembersInOrg({
+              org: context.repo.owner,
+              team_slug: 'admin-team',  # Replace with your actual team slug
+            });
+            const isAdmin = members.some(member => member.login === context.actor);
+            core.setOutput('is-admin', isAdmin);
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Admin Bypass
+        id: bypass
+        run: |
+          if [ "${{ steps.check-admin.outputs.is-admin }}" == "true" ]; then
+            echo "Admin user detected - bypassing validation"
+            echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
+          else
+            echo "Proceeding with validation"
+          fi
+
+      - name: Validate PR
+        if: env.SKIP_VALIDATION != 'true'
+        run: |
+          python .github/plugins/validate_PR.py --author "${{ github.actor }}"

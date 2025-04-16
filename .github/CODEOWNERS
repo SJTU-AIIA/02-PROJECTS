@@ -1,11 +1,8 @@
 # Default to admin review
-* @admin-team
+* @SJTU-AIIA/admins
 
 # Contributor-owned folders
-/projects/@*/ @  # Allow any contributor to edit their own folder
-/projects/contributor1/ @contributor1
-/projects/contributor2/ @contributor2
 
 # Critical files - only admins
-/.github/ @DysonFabienSun
-/projects/.template/ @DysonFabienSun
+/.github/ @SJTU-AIIA/admins
+/projects/.template/ @SJTU-AIIA/admins
