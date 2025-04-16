@@ -48,7 +48,7 @@ jobs:
           fi
 
       - name: Validate Manifests
-        if: steps.changed-projects.outputs.projects
+        if: env.SKIP_VALIDATION == 'false'
         run: |
           for project in ${{ steps.changed-projects.outputs.projects }}; do
             echo "::group::Validating $project"
@@ -57,7 +57,7 @@ jobs:
               "${{ github.actor }}"
             echo "::endgroup::"
           done
-          
+
       - name: Skip notice
         if: env.SKIP_VALIDATION == 'true'
         run: echo "::notice::Skipping validation - no project manifests were modified"
