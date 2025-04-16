@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+            fetch-depth: 2
 
       - name: Fetch Commit Author
         id: commit-author
@@ -21,44 +23,44 @@ jobs:
       - name: Determine Affected Project
         id: affected-project
         run: |
-          # Get all changed files in projects/ directory
-          CHANGED_FILES=$(git diff --name-only $GITHUB_SHA^ $GITHUB_SHA | grep '^projects/')
-        
-          # Exit if no project files were changed
-          if [ -z "$CHANGED_FILES" ]; then
-              echo "::warning::No changes detected in any project directories"
-              echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
-              exit 0
+          # Get all changed files under projects/
+          changed_files=$(git diff --name-only $GITHUB_SHA^ $GITHUB_SHA -- 'projects/*')
+          
+          # Extract unique project directories that have a manifest
+          declare -a projects
+          while IFS= read -r file; do
+            project_dir=$(echo "$file" | cut -d'/' -f2)
+            if [[ -f "projects/$project_dir/manifest.json" ]]; then
+              projects+=("$project_dir")
+            fi
+          done <<< "$changed_files"
+
+          # Remove duplicates and format as JSON array
+          unique_projects=($(printf "%s\n" "${projects[@]}" | sort -u))
+          echo "Found ${#unique_projects[@]} projects to validate: ${unique_projects[*]}"
+          
+          # Set outputs
+          if [ ${#unique_projects[@]} -eq 0 ]; then
+            echo "::notice::No project manifests need validation"
+            echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
+          else
+            echo "projects=${unique_projects[*]}" >> $GITHUB_OUTPUT
           fi
-        
-          # Extract unique project directories (second path component)
-          PROJECT_DIRS=$(echo "$CHANGED_FILES" | awk -F'/' 'NF>1 {print $2}' | sort | uniq)
-        
-          # Verify each project has a manifest.json
-          VALID_PROJECTS=""
-          for DIR in $PROJECT_DIRS; do
-              if [ -f "projects/$DIR/manifest.json" ]; then
-              VALID_PROJECTS="$VALID_PROJECTS $DIR"
-              else
-              echo "::warning::Project $DIR is missing manifest.json"
-              fi
-          done
-        
-          # Trim whitespace and set output
-          VALID_PROJECTS=$(echo "$VALID_PROJECTS" | xargs)
-          if [ -z "$VALID_PROJECTS" ]; then
-              echo "::error::No valid projects with manifest.json found"
-              exit 1
-          fi
-        
-          echo "AFFECTED_PROJECTS=$VALID_PROJECTS" >> $GITHUB_ENV
-          echo "Valid projects to validate: $VALID_PROJECTS"
 
       - name: Validate Manifests
+        if: steps.changed-projects.outputs.projects
         run: |
-          for PROJECT in ${{ env.AFFECTED_PROJECTS }}; do
-              python .github/plugins/validate_manifest.py "projects/$PROJECT/manifest.json" "${{ env.AUTHOR }}"
+          for project in ${{ steps.changed-projects.outputs.projects }}; do
+            echo "::group::Validating $project"
+            python .github/plugins/validate_manifest.py \
+              "projects/$project/manifest.json" \
+              "${{ github.actor }}"
+            echo "::endgroup::"
           done
+          
+      - name: Skip notice
+        if: env.SKIP_VALIDATION == 'true'
+        run: echo "::notice::Skipping validation - no project manifests were modified"
 
   update:
     needs: validate
