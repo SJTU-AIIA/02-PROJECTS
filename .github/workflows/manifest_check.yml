@@ -49,7 +49,7 @@ jobs:
           script: |
             const { data: members } = await github.rest.teams.listMembersInOrg({
               org: context.repo.owner,
-              team_slug: 'admin-team',  # Replace with your actual team slug
+              team_slug: 'admins',  # Replace with your actual team slug
             });
             const isAdmin = members.some(member => member.login === context.actor);
             core.setOutput('is-admin', isAdmin);
