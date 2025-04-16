@@ -1,0 +1,12 @@
+{
+  "name": "dfs-test-7",
+  "authors": [],
+  "created": "2025-04-16T23:23:27.517044+08:00",
+  "ports": {
+    "default": "8000:8000"
+  },
+  "env_vars": {},
+  "tags": [],
+  "image": "",
+  "version": "0.0.0"
+}
