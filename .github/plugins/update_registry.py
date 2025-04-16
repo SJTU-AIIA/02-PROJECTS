@@ -9,8 +9,8 @@ def update_registry():
     utc_8 = timezone(timedelta(hours=8))
 
     registry = {"projects": []}
-    for manifest in glob.glob(str(ROOT_DIR / "projects/**/manifest.json")):
-        with open(f"projects/{manifest}/manifest.json") as f:
+    for manifest in glob.glob(os.path.join(str(ROOT_DIR),"projects/**/manifest.json")):
+        with open(manifest) as f:
             data = json.load(f)
             data["path"] = os.path.dirname(manifest)
             # Add last_updated timestamp
