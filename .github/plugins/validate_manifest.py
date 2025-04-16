@@ -11,10 +11,13 @@ schema = {
     }
 }
 
-def validate(manifest_path):
+def validate(manifest_path, author):
     with open(manifest_path) as f:
         data = json.load(f)
-    jsonschema.validate(data, schema)
+        jsonschema.validate(data, schema) # validates format
+    data["author"] = [author]
+    with open(manifest_path, "w") as f:
+        json.dump(data, f, indent=2, sort_keys=True)   # adds author information directly
 
 if __name__ == "__main__":
-    validate(sys.argv[1])
+    validate(sys.argv[1], sys.argv[2])
