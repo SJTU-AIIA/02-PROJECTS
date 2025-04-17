@@ -73,7 +73,7 @@ proj-cli submit "提交信息"
 ```bash  
 proj-cli deploy [--bump major/minor/patch]  
 ```  
-*需存在Dockerfile，支持语义化版本控制*  
+*需存在Dockerfile，支持语义化版本控制（v1.0.0, v1.0.1等）*  
 
 ### 运行容器  
 ```bash  
