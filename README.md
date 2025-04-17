@@ -15,7 +15,7 @@ pip install --upgrade aiia-cli
 
 ### 如已有项目仓库：
 ```bash  
-proj-cli import_repo 仓库URL [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
+proj-cli import-repo 仓库URL [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
 ```  
 
 ### 如需新建项目：
@@ -59,7 +59,7 @@ proj-cli format 项目名称 [--port 8000:8000 --env 环境变量1=值 --env 环
 
 ### 导入外部仓库  
 ```bash  
-proj-cli import_repo 仓库URL [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
+proj-cli import-repo 仓库URL [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
 ```  
 *默认分支main，自动生成规范文件*  
 

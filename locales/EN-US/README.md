@@ -9,7 +9,7 @@ pip install --upgrade aiia-cli
 Then, navigate to the `02-PROJECTS` repository, and open a command line at the root of the file.
 ### If you already have a repo with your project:
 ```bash
-proj-cli import_repo <your_repo_url> [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
+proj-cli import-repo <your_repo_url> [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
 ```
 
 ### Alternatively, if you want to start anew:
@@ -64,7 +64,7 @@ A prompt will be returned upon successful insertion.
 ### (Alternative) Import from Repository:
 If you want to import a project from another repo you personally have, this function allows a project to be imported while keeping our specifications.
 ```bash
-proj-cli import_repo repo_url [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
+proj-cli import-repo repo-url [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
 ```
 This will import a repository of your choosing. Branch defaults to main. All templates will be automatically generated.
 
@@ -90,27 +90,3 @@ Ensure you already have the Docker package built, deployed to GHCR and are in yo
 proj-cli run [--version latest --port [8000:8000] --env ENV1=123 --env ENV2=456]
 ```
 This will run the version as dictated. If version is latest or the field isn't filled in, the latest version of the build will be run. The port and env fields can be omitted and will use default values dictated when creating the project.
-
-## Manual Alternative:
-
-### 1. Copy Template:
-```bash
-cp -r projects/.template projects/my_project
-```
-### 2. Edit `manifest.json`:
-```json
-{
-  "name": "My Project",
-  "authors": ["@alice", "@bob"],
-  "created": "2023-08-25T09:30:00Z",
-  "license": "MIT",
-  "tags": ["llm", "chatbot"]
-}
-```
-### 3. Submit:
-```bash
-git checkout -b my-project
-git add projects/my_project
-git commit -m "Add my_project"
-git push origin my-project
-```
