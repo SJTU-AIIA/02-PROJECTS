@@ -1,0 +1,6 @@
+
+======================================== Starting New Log Session ========================================
+
+2025-04-17 19:07:06,109 - CoreModel - INFO - OpenAI Loaded.
+2025-04-17 19:07:07,074 - CoreModel - INFO - Initialization Complete.
+2025-04-17 19:07:07,077 - CoreModel - DEBUG - User submitted query: Hi!, metadata: None

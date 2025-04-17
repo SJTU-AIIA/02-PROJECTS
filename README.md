@@ -29,7 +29,7 @@ This will create a project folder, and after a small delay, please refresh your 
 Should a login be prompted, run `proj-cli login` and enter your PAT (Personal Access Token), accessible through Github settings > Developer Settings > Personal Access Tokens. **The fields `repo` and `write:packages` (`read:packages`) must be selected in this PAT.** This will be useful when authenticating with GHCR.
 
 ### Building Sample Project
-After filling up your project, the next step will be to build and deploy it on GHCR, github's Docker image platform. `proj-cli` offers a few versatile functions for this, and the process goes as follows:
+After filling up your project, the next step will be to build and deploy it on GHCR, github's Docker image platform. Ensure you have docker Desktop (or alternatives) installed and you have access to the `docker` suite of commands. `proj-cli` offers a few versatile functions for deployment, and the process goes as follows:
 
 ```bash
 cd projects/<your project name>
