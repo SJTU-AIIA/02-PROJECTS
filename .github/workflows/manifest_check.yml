@@ -53,7 +53,7 @@ jobs:
         run: |
           for project in ${{ steps.affected-project.outputs.projects }}; do
             echo "::group::Validating $project"
-            python .github/plugins/validate_manifest.py \  # validate manifest files for all new changes
+            python .github/plugins/validate_manifest.py \
               "projects/$project/manifest.json" \
               "${{ github.actor }}"
             echo "::endgroup::"
