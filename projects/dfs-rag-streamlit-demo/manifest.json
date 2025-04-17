@@ -9,6 +9,10 @@
   "ports": {
     "default": "8501:8000"
   },
-  "tags": ["rag", "streamlit", "llm"],
+  "tags": [
+    "rag",
+    "streamlit",
+    "llm"
+  ],
   "version": "6.0.0"
 }
