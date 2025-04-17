@@ -1,116 +1,107 @@
-# PROJECTS PANEL
-Welcome to our projects manager! This is where all projects are tracked. For a starter's guide to how you can contribute, read the example below.
-## Sample AIIA-CLI (PROJ-CLI) Workflow:
-### First Steps
-Install AIIA-CLI. This is a proprietary, custom tool written from scratch to facilitate projects creation and management.
-```bash
-pip install --upgrade aiia-cli
-```
-Then, navigate to the `02-PROJECTS` repository, and open a command line at the root of the file.
-### If you already have a repo with your project:
-```bash
-proj-cli import_repo <your_repo_url> [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
-```
+# 项目管理面板  
+欢迎来到项目管理中心！此处将会跟踪所有项目进展。
+[English README.md Version]()
+新手贡献指南请参考下方示例：
 
-### Alternatively, if you want to start anew:
-```bash
-proj-cli new project_name [--port 8000:8000 --env ENV_1=123 --env ENV_2=456]
-```
+## 示例 AIIA-CLI (PROJ-CLI) 工作流  
+### 初始步骤  
+安装 AIIA-CLI（专有定制开发的项目管理工具）  
+```bash  
+pip install --upgrade aiia-cli  
+```  
+进入 `02-PROJECTS` 仓库根目录打开命令行  
 
-### If you already made a project folder, please use the format function to format the project folder with our requirements:
+### 已有项目仓库  
+```bash  
+proj-cli import_repo <你的仓库URL> [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
+```  
 
-```bash
-proj-cli format project_name [--port 8000:8000 --env ENV_1=123 --env ENV_2=456]
-```
+### 新建项目  
+```bash  
+proj-cli new 项目名称 [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值]  
+```  
 
-Default port and build environment variables could be provided here. (optional: default ports will be set to 8000:8000, branch (if import_repo) to `main`, and env left empty)
-This will create a project folder, and after a small delay, please refresh your github repo and manage your new manifest and README files.
+### 格式化已有项目  
+```bash  
+proj-cli format 项目名称 [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值]  
+```  
+*可在此提供默认端口和构建环境变量（端口默认8000:8000，分支默认main，环境变量默认为空）*  
+*创建项目文件夹后，请稍候刷新GitHub仓库管理manifest和README文件*  
 
-Should a login be prompted, run `proj-cli login` and enter your PAT (Personal Access Token), accessible through Github settings > Developer Settings > Personal Access Tokens. **The fields `repo` and `write:packages` (`read:packages`) must be selected in this PAT.** This will be useful when authenticating with GHCR.
+**登录提示**：运行`proj-cli login`输入个人访问令牌(PAT)，需在GitHub设置 > 开发者设置 > 个人访问令牌中勾选`repo`和`write:packages`/`read:packages`权限，用于GHCR认证  
 
-### Building Sample Project
-After filling up your project, the next step will be to build and deploy it on GHCR, github's Docker image platform. Ensure you have docker Desktop (or alternatives) installed and you have access to the `docker` suite of commands. `proj-cli` offers a few versatile functions for deployment, and the process goes as follows:
+### 构建与部署  
+```bash  
+cd projects/<你的项目名称>  
+proj-cli login  
+proj-cli deploy --bump major  # 部署新Docker镜像，主版本升级  
+proj-cli run  
+```  
+大功告成！测试您的新项目！  
 
-```bash
-cd projects/<your project name>
-proj-cli login
-proj-cli deploy --bump major  # deploys my new Docker image, with a new major version update
-proj-cli run
-```
+---
 
-Voilà! Test out your new project!
+## AIIA-CLI (PROJ-CLI) 文档  
+### 新建项目  
+```bash  
+proj-cli new 项目名称 [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值]  
+```  
+*在/projects目录创建项目，指定端口和环境变量（默认8000:8000）*  
 
-For more detailed instructions, check the docs below.
+### 格式化项目  
+```bash  
+proj-cli format 项目名称 [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值]  
+```  
+*将模板文件注入项目目录，冲突文件提示处理，README.md提供合并选项*  
 
-## Docs of AIIA-CLI (PROJ-CLI) for Project Management
-### Create New Project:
-Make sure your command window is in the ROOT of the repo.
-```bash
-proj-cli new project_name [--port 8000:8000 --env ENV_1=123 --env ENV_2=456]
-```
-This creates a project in the /projects pile with a specified port and specified default environment variables. The port defaults at `8000:8000` (inbound and outbound docker ports) and this should be left untouched. Default environment variables will be applied when running the docker build.
+### 导入外部仓库  
+```bash  
+proj-cli import_repo 仓库URL [--port 8000:8000 --env 环境变量1=值 --env 环境变量2=值 --branch 分支]  
+```  
+*默认分支main，自动生成规范文件*  
 
-A prompt will be returned upon successful insertion.
+### 提交项目  
+```bash  
+proj-cli submit "提交信息"  
+```  
+*需在项目目录内执行，提交并推送变更*  
 
-### (Alternative) Format Project Folder:
-If you have already ported in the project folder yet want to format to the template, there is a neat function to do just that!
-```bash
-proj-cli format project_name [--port 8000:8000 --env ENV_1=123 --env ENV_2=456]
-```
-This adds all files in the template into your project folder. All conflicting files will be highlighted and you will be given the option to keep or overwrite the original file. README.md is given an option to merge or keep as is. Default port and env variables will be applied when running the docker build.
+### 部署Docker镜像  
+```bash  
+proj-cli deploy [--bump major/minor/patch]  
+```  
+*需存在Dockerfile，支持语义化版本控制*  
 
-A prompt will be returned upon successful insertion.
+### 运行容器  
+```bash  
+proj-cli run [--version 版本 --port 端口映射 --env 变量=值]  
+```  
+*默认使用最新版本和项目创建时配置*  
 
-### (Alternative) Import from Repository:
-If you want to import a project from another repo you personally have, this function allows a project to be imported while keeping our specifications.
-```bash
-proj-cli import_repo repo_url [--port 8000:8000 --env ENV_1=123 --env ENV_2=456 --branch branch]
-```
-This will import a repository of your choosing. Branch defaults to main. All templates will be automatically generated.
+---
 
-A prompt will be returned upon successful insertion.
-
-### Submit & Commit Project:
-Make sure you have CD'ed into the project folder, as in `/projects/your_project/`.
-```bash
-proj-cli submit message
-```
-This will commit and push the project, and log the message field into the system.
-
-### Deploy Docker Build to GHCR:
-Ensure the Dockerfile exists and is configured.
-```bash
-proj-cli deploy [--bump major/minor/patch]
-```
-This will build a new version 
-
-### Run Docker Build:
-Ensure you already have the Docker package built, deployed to GHCR and are in your own project folder.
-```bash
-proj-cli run [--version latest --port [8000:8000] --env ENV1=123 --env ENV2=456]
-```
-This will run the version as dictated. If version is latest or the field isn't filled in, the latest version of the build will be run. The port and env fields can be omitted and will use default values dictated when creating the project.
-
-## Manual Alternative:
-
-### 1. Copy Template:
-```bash
-cp -r projects/.template projects/my_project
-```
-### 2. Edit `manifest.json`:
-```json
+## 手动操作指南  
+### 1. 复制模板  
+```bash  
+cp -r projects/.template projects/我的项目  
+```  
+### 2. 编辑manifest.json  
+```json  
 {
-  "name": "My Project",
-  "authors": ["@alice", "@bob"],
-  "created": "2023-08-25T09:30:00Z",
+  "name": "我的项目",
+  "authors": ["@张三", "@李四"],
+  "created": "2023-08-25T09:30:00+08:00", 
   "license": "MIT",
-  "tags": ["llm", "chatbot"]
-}
-```
-### 3. Submit:
-```bash
-git checkout -b my-project
-git add projects/my_project
-git commit -m "Add my_project"
-git push origin my-project
-```
+  "tags": ["大模型", "对话系统"]
+}  
+```  
+### 3. 提交变更  
+```bash  
+git checkout -b 我的项目  
+git add projects/我的项目  
+git commit -m "新增我的项目"  
+git push origin 我的项目  
+```  
+
+*注：所有命令行参数保持英文格式，中文仅作说明使用*  
+*建议优先使用CLI工具保证配置规范性*
