@@ -1,12 +1,14 @@
 {
-  "name": "dfs-rag-streamlit-demo",
-  "authors": [],
+  "authors": [
+    "DysonFabienSun"
+  ],
   "created": "2025-04-17T17:28:50.421630+08:00",
+  "env_vars": {},
+  "image": "",
+  "name": "dfs-rag-streamlit-demo",
   "ports": {
     "default": "8000:8000"
   },
-  "env_vars": {},
   "tags": [],
-  "image": "",
   "version": "0.0.0"
 }
