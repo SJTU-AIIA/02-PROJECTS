@@ -2,7 +2,7 @@
 Welcome to our projects manager! This is where all projects are tracked. For a starter's guide to how you can contribute, read the example below.
 ## Sample AIIA-CLI (PROJ-CLI) Workflow:
 ### First Steps
-Install AIIA-CLI.
+Install AIIA-CLI. This is a proprietary, custom tool written from scratch to facilitate projects creation and management.
 ```bash
 pip install --upgrade aiia-cli
 ```
