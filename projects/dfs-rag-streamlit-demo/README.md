@@ -1,5 +1,5 @@
-# [PROJECT_NAME]
+# [dfs-rag-streamlit-demo]
 
-**Authors**: [@user1](https://github.com/user1), [@user2](https://github.com/user2)  
-**Created**: `2023-01-01`  
-**Tags**: `llm`, `nlp`
+**Authors**: [@DysonFabienSun](https://github.com/DysonFabienSun)
+**Created**: `2025-4-17  
+**Tags**: `llm`, `rag`, `streamlit`
