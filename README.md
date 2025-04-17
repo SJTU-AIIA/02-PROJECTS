@@ -1,6 +1,6 @@
 # 项目管理面板  
 欢迎来到项目管理中心！此处将会跟踪所有项目进展。
-[English README.md Version]()
+[English README.md Version](https://github.com/SJTU-AIIA/02-PROJECTS/blob/main/locales/EN-US/README.md)
 新手贡献指南请参考下方示例：
 
 ## 示例 AIIA-CLI (PROJ-CLI) 工作流  
