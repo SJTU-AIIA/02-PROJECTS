@@ -1,14 +1,13 @@
-# 项目管理面板  
-欢迎来到项目管理中心！此处将会跟踪所有项目进展。
+欢迎来到AI创协开发的项目管理中心！所有同学们开发的项目都将在此仓库中保存，同时为同学们提供了高效的AI向部署工具，希望能帮助到大家找到学习AI的优质资源！
 
 ### 其他语言 Other Languages：
 [English README.md Version](https://github.com/SJTU-AIIA/02-PROJECTS/blob/main/locales/EN-US/README.md)
 
-新手贡献指南请参考下方示例：
+# 新手操作指南：
 
 ## 示例 AIIA-CLI (PROJ-CLI) 工作流  
 ### 初始步骤  
-安装 AIIA-CLI（专有定制开发的项目管理工具）  
+安装 AIIA-CLI（共学部开发的项目管理工具）  
 ```bash  
 pip install --upgrade aiia-cli  
 ```  
