@@ -71,6 +71,7 @@ jobs:
           token: ${{ secrets.PAT_ADMIN }}
 
       - name: Update Registry
+        if: ${{ env.AFFECTED_PROJECTS }}
         run: |
           python .github/plugins/update_registry.py
           git config --global user.name "GitHub Bot"
@@ -91,12 +92,17 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { data: members } = await github.rest.teams.listMembersInOrg({
-              org: context.repo.owner,
-              team_slug: 'admins',
-            });
-            const isAdmin = members.some(member => member.login === context.actor);
-            core.setOutput('is-admin', isAdmin);
+            try {
+              const { data: members } = await github.rest.teams.listMembersInOrg({
+                org: context.repo.owner,
+                team_slug: 'admins', // Must match your team name exactly
+              });
+              const isAdmin = members.some(member => member.login === context.actor);
+              core.setOutput('is-admin', isAdmin);
+            } catch (error) {
+              core.setFailed(`Admin check failed: ${error.message}`);
+              core.setOutput('is-admin', false);
+            }
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set Admin Bypass
