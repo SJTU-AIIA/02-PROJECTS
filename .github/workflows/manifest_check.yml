@@ -50,7 +50,7 @@ jobs:
       - name: Validate Manifests
         if: env.SKIP_VALIDATION == 'false'
         run: |
-          for project in ${{ steps.changed-projects.outputs.projects }}; do
+          for project in ${{ steps.affected-project.outputs.projects }}; do
             echo "::group::Validating $project"
             python .github/plugins/validate_manifest.py \
               "projects/$project/manifest.json" \
@@ -91,9 +91,10 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const { github, context } = require('@actions/github');
             const { data: members } = await github.rest.teams.listMembersInOrg({
               org: context.repo.owner,
-              team_slug: 'admins',  # Replace with your actual team slug
+              team_slug: 'admins',
             });
             const isAdmin = members.some(member => member.login === context.actor);
             core.setOutput('is-admin', isAdmin);
