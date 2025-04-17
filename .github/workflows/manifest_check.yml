@@ -56,6 +56,7 @@ jobs:
             python .github/plugins/validate_manifest.py \
               "projects/$project/manifest.json" \
               "${{ github.actor }}"
+            git add "projects/$project/manifest.json"
             echo "::endgroup::"
           done
 

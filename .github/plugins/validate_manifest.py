@@ -27,7 +27,7 @@ def validate(manifest_path, author):
         with open(manifest_path) as f:
             data = json.load(f)
             jsonschema.validate(data, schema) # validates format
-        data["author"] = [author]
+        data["authors"] = [author]
         with open(manifest_path, "w") as f:
             json.dump(data, f, indent=2, sort_keys=True)   # adds author information directly
         sys.exit(0)
