@@ -5,7 +5,7 @@
 
 # 新手操作指南：
 
-## 示例 AIIA-CLI (PROJ-CLI) 工作流  
+## AIIA-CLI (PROJ-CLI) 用法详解：
 ### 初始步骤  
 安装 AIIA-CLI（共学部开发的项目管理工具）  
 ```bash  
