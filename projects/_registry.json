@@ -7,7 +7,7 @@
       "created": "2025-04-17T16:53:38.194255+08:00",
       "env_vars": {},
       "image": "",
-      "last_updated": "2025-04-17T19:16:29.324262+08:00",
+      "last_updated": "2025-04-17T19:34:10.247136+08:00",
       "name": "dfs-test-final",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-final",
       "ports": {
@@ -22,15 +22,15 @@
       ],
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
-      "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:5.0.0",
-      "last_updated": "2025-04-17T19:16:29.324308+08:00",
+      "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
+      "last_updated": "2025-04-17T19:34:10.247182+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
         "default": "8501:8000"
       },
       "tags": [],
-      "version": "5.0.0"
+      "version": "6.0.0"
     }
   ]
 }
