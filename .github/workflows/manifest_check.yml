@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+            token: ${{ secrets.PAT_ADMIN }}
             fetch-depth: 2
 
       - name: Fetch Commit Author
@@ -52,36 +53,25 @@ jobs:
         run: |
           for project in ${{ steps.affected-project.outputs.projects }}; do
             echo "::group::Validating $project"
-            python .github/plugins/validate_manifest.py \
+            python .github/plugins/validate_manifest.py \  # validate manifest files for all new changes
               "projects/$project/manifest.json" \
               "${{ github.actor }}"
             echo "::endgroup::"
           done
 
-      - name: Skip notice
-        if: env.SKIP_VALIDATION == 'true'
-        run: echo "::notice::Skipping validation - no project manifests were modified"
-
-  update:
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_ADMIN }}
-
-      - name: Update Registry
-        if: ${{ env.AFFECTED_PROJECTS }}
-        run: |
           python .github/plugins/update_registry.py
           git config --global user.name "GitHub Bot"
           git config --global user.email "actions@github.com"
           git add projects/_registry.json
-          git commit -m "[CLI] Update registry for ${{ env.AFFECTED_PROJECTS }}"  # Reference the branch/tag here
+          git commit -m "[CLI] Update registry for ${{ steps.affected-project.outputs.projects }}"  # update registry only if actual files are affected
           git push
 
+      - name: Skip notice
+        if: env.SKIP_VALIDATION == 'true'
+        run: echo "::notice::Skipping validation - no project manifests were modified"
+
   validate-push-privileges:
-    needs: update
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
