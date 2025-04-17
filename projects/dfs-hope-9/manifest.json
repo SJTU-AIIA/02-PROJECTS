@@ -1,0 +1,12 @@
+{
+  "name": "dfs-hope-9",
+  "authors": [],
+  "created": "2025-04-17T16:05:34.910727+08:00",
+  "ports": {
+    "default": "8000:8000"
+  },
+  "env_vars": {},
+  "tags": [],
+  "image": "",
+  "version": "0.0.0"
+}
