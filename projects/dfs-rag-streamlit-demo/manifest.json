@@ -4,11 +4,11 @@
   ],
   "created": "2025-04-17T17:28:50.421630+08:00",
   "env_vars": {},
-  "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:2.0.0",
+  "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:3.0.0",
   "name": "dfs-rag-streamlit-demo",
   "ports": {
     "default": "8501:8000"
   },
   "tags": [],
-  "version": "2.0.0"
+  "version": "3.0.0"
 }
