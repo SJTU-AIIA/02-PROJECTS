@@ -32,6 +32,7 @@ Should a login be prompted, run `proj-cli login` and enter your PAT (Personal Ac
 After filling up your project, the next step will be to build and deploy it on GHCR, github's Docker image platform. `proj-cli` offers a few versatile functions for this, and the process goes as follows:
 
 ```bash
+cd projects/<your project name>
 proj-cli login
 proj-cli deploy --bump major  # deploys my new Docker image, with a new major version update
 proj-cli run
