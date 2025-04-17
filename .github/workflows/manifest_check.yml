@@ -93,7 +93,7 @@ jobs:
               core.setFailed(`Admin check failed: ${error.message}`);
               core.setOutput('is-admin', false);
             }
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.PAT_ADMIN }}
 
       - name: Set Admin Bypass
         id: bypass
