@@ -7,7 +7,7 @@
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
       "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
-      "last_updated": "2025-04-17T23:28:58.076016+08:00",
+      "last_updated": "2025-04-17T23:29:07.330711+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
