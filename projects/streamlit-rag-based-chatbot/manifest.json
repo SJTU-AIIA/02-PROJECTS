@@ -1,14 +1,16 @@
 {
-  "name": "streamlit-rag-based-chatbot",
-  "source_repo": "https://github.com/DysonFabienSun/Streamlit-RAG-based-Chatbot",
-  "authors": [],
+  "authors": [
+    "DysonFabienSun"
+  ],
   "created": "2025-04-17T20:18:03.627921+08:00",
+  "env_vars": {},
+  "image": "",
   "last_imported": "2025-04-17T20:18:03.627921+08:00",
+  "name": "streamlit-rag-based-chatbot",
   "ports": {
     "default": "8000:8000"
   },
-  "env_vars": {},
+  "source_repo": "https://github.com/DysonFabienSun/Streamlit-RAG-based-Chatbot",
   "tags": [],
-  "image": "",
   "version": "0.0.0"
 }

@@ -4,15 +4,17 @@
       "authors": [
         "DysonFabienSun"
       ],
-      "created": "2025-04-17T16:53:38.194255+08:00",
+      "created": "2025-04-17T20:18:03.627921+08:00",
       "env_vars": {},
       "image": "",
-      "last_updated": "2025-04-17T19:34:10.247136+08:00",
-      "name": "dfs-test-final",
-      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-final",
+      "last_imported": "2025-04-17T20:18:03.627921+08:00",
+      "last_updated": "2025-04-17T20:18:15.251167+08:00",
+      "name": "streamlit-rag-based-chatbot",
+      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/streamlit-rag-based-chatbot",
       "ports": {
         "default": "8000:8000"
       },
+      "source_repo": "https://github.com/DysonFabienSun/Streamlit-RAG-based-Chatbot",
       "tags": [],
       "version": "0.0.0"
     },
@@ -23,7 +25,7 @@
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
       "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
-      "last_updated": "2025-04-17T19:34:10.247182+08:00",
+      "last_updated": "2025-04-17T20:18:15.251213+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
