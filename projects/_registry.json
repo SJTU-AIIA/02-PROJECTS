@@ -1,58 +1,15 @@
 {
   "projects": [
     {
-      "author": [
+      "authors": [
         "DysonFabienSun"
       ],
-      "authors": [],
-      "created": "2025-04-17T16:51:27.881914+08:00",
+      "created": "2025-04-17T16:53:38.194255+08:00",
       "env_vars": {},
       "image": "",
-      "last_updated": "2025-04-17T16:51:34.256394+08:00",
-      "name": "dfs-test-4",
-      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-4",
-      "ports": {
-        "default": "8000:8000"
-      },
-      "tags": [],
-      "version": "0.0.0"
-    },
-    {
-      "authors": [],
-      "created": "2025-04-17T16:32:31.774609+08:00",
-      "env_vars": {},
-      "image": "",
-      "last_updated": "2025-04-17T16:51:34.256448+08:00",
-      "name": "dfs-test",
-      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test",
-      "ports": {
-        "default": "8000:8000"
-      },
-      "tags": [],
-      "version": "0.0.0"
-    },
-    {
-      "authors": [],
-      "created": "2025-04-17T16:46:28.749544+08:00",
-      "env_vars": {},
-      "image": "",
-      "last_updated": "2025-04-17T16:51:34.256483+08:00",
-      "name": "dfs-test-3",
-      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-3",
-      "ports": {
-        "default": "8000:8000"
-      },
-      "tags": [],
-      "version": "0.0.0"
-    },
-    {
-      "authors": [],
-      "created": "2025-04-17T16:33:53.295023+08:00",
-      "env_vars": {},
-      "image": "",
-      "last_updated": "2025-04-17T16:51:34.256514+08:00",
-      "name": "dfs-test-2",
-      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-2",
+      "last_updated": "2025-04-17T16:53:43.286776+08:00",
+      "name": "dfs-test-final",
+      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-final",
       "ports": {
         "default": "8000:8000"
       },
@@ -63,7 +20,7 @@
       "authors": [],
       "created": "2025-04-16T14:07:52.795859+08:00",
       "env_vars": {},
-      "last_updated": "2025-04-17T16:51:34.256551+08:00",
+      "last_updated": "2025-04-17T16:53:43.286825+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
