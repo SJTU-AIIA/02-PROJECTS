@@ -48,7 +48,7 @@ jobs:
           fi
 
       - name: Validate Manifests
-        if: env.SKIP_VALIDATION == 'false'
+        if: steps.affected-project.outputs.projects
         run: |
           for project in ${{ steps.affected-project.outputs.projects }}; do
             echo "::group::Validating $project"
@@ -91,7 +91,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { github, context } = require('@actions/github');
             const { data: members } = await github.rest.teams.listMembersInOrg({
               org: context.repo.owner,
               team_slug: 'admins',
@@ -113,4 +112,4 @@ jobs:
       - name: Validate Push
         if: env.SKIP_VALIDATION != 'true'
         run: |
-          python .github/plugins/validate_push.py "${{ github.actor }}"  # Use a different validation script if needed
+          python .github/plugins/validate_push.py "${{ github.actor }}"
