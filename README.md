@@ -26,7 +26,7 @@ proj-cli format project_name [--port 8000:8000 --env ENV_1=123 --env ENV_2=456]
 Default port and build environment variables could be provided here. (optional: default ports will be set to 8000:8000, branch (if import_repo) to `main`, and env left empty)
 This will create a project folder, and after a small delay, please refresh your github repo and manage your new manifest and README files.
 
-Should a login be prompted, run `proj-cli login` and enter your PAT (Personal Access Token). This will be useful when authenticating with GHCR.
+Should a login be prompted, run `proj-cli login` and enter your PAT (Personal Access Token), accessible through Github settings > Developer Settings > Personal Access Tokens. **The fields `repo` and `write:packages` (`read:packages`) must be selected in this PAT.** This will be useful when authenticating with GHCR.
 
 ### Building Sample Project
 After filling up your project, the next step will be to build and deploy it on GHCR, github's Docker image platform. `proj-cli` offers a few versatile functions for this, and the process goes as follows:
