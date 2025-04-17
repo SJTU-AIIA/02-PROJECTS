@@ -8,7 +8,7 @@
       "env_vars": {},
       "image": "",
       "last_imported": "2025-04-17T20:18:03.627921+08:00",
-      "last_updated": "2025-04-17T20:18:15.251167+08:00",
+      "last_updated": "2025-04-17T20:18:26.133184+08:00",
       "name": "streamlit-rag-based-chatbot",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/streamlit-rag-based-chatbot",
       "ports": {
@@ -25,7 +25,7 @@
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
       "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
-      "last_updated": "2025-04-17T20:18:15.251213+08:00",
+      "last_updated": "2025-04-17T20:18:26.133231+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
