@@ -2,9 +2,40 @@
   "projects": [
     {
       "authors": [],
+      "created": "2025-04-17T16:32:31.774609+08:00",
+      "env_vars": {},
+      "image": "",
+      "last_updated": "2025-04-17T16:33:59.526192+08:00",
+      "name": "dfs-test",
+      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test",
+      "ports": {
+        "default": "8000:8000"
+      },
+      "tags": [],
+      "version": "0.0.0"
+    },
+    {
+      "author": [
+        "DysonFabienSun"
+      ],
+      "authors": [],
+      "created": "2025-04-17T16:33:53.295023+08:00",
+      "env_vars": {},
+      "image": "",
+      "last_updated": "2025-04-17T16:33:59.526242+08:00",
+      "name": "dfs-test-2",
+      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-test-2",
+      "ports": {
+        "default": "8000:8000"
+      },
+      "tags": [],
+      "version": "0.0.0"
+    },
+    {
+      "authors": [],
       "created": "2025-04-16T14:07:52.795859+08:00",
       "env_vars": {},
-      "last_updated": "2025-04-17T16:31:13.376724+08:00",
+      "last_updated": "2025-04-17T16:33:59.526278+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {
