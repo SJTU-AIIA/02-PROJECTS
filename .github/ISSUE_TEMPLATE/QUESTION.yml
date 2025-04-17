@@ -1,0 +1,59 @@
+name: Project Question/项目问题
+description: Ask about a specific project in the hub/关于项目中某个具体模型的疑问
+title: "[QUESTION] [Project Name] Your Question Summary/您的问题摘要"
+labels: ["question", "help wanted", "Project Support/项目支持"]
+assignees: ["your-triage-team"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **English**: Please provide details about your question.  
+        **中文**: 请详细描述您的问题。
+
+  - type: textarea
+    id: project-info
+    attributes:
+      label: "Project Details/项目信息"
+      description: |
+        **English**: Which project does this question relate to?  
+        **中文**: 此问题涉及哪个项目？
+      placeholder: |
+        Project Name: [e.g. llama2-finetuning]
+        Project Version: [e.g. v1.2.0]
+        
+        项目名称: [例: llama2-微调]
+        项目版本: [例: v1.2.0]
+
+  - type: textarea
+    id: question-details
+    attributes:
+      label: "Question Description/问题描述"
+      description: |
+        **English**: Clearly explain your question with:  
+        - What you're trying to achieve  
+        - Steps you've already tried  
+        - Error messages (if any)  
+        
+        **中文**: 请详细说明:  
+        - 您想要实现的目标  
+        - 已尝试的步骤  
+        - 出现的错误信息(如有)
+      placeholder: |
+        **English**:
+        I'm trying to...[describe goal]  
+        I followed...[describe steps]  
+        I encountered...[describe error]
+        
+        **中文**:
+        我正在尝试...[描述目标]  
+        已执行步骤...[描述操作]  
+        遇到了...[描述错误]
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Basic Checks/基础确认"
+      options:
+        - label: "I've checked project documentation/我已查阅项目文档"
+        - label: "I've searched existing issues/我已搜索现有问题"

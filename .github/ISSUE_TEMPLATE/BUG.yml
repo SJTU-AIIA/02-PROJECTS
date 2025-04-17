@@ -1,0 +1,90 @@
+name: System Bug/系统错误
+description: Report issues with hub infrastructure/报告平台系统本身的问题
+title: "[BUG] [System Component] Brief Description/错误摘要"
+labels: ["bug", "System Issue/系统问题", "priority: needs-triage/需分类"]
+assignees: ["your-admin-team"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **English**: Please help improve the system by reporting bugs.  
+        **中文**: 请通过报告错误帮助我们改进系统。
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "Bug Description/错误描述"
+      description: |
+        **English**: A clear description of what's wrong  
+        **中文**: 对问题的清晰描述
+      placeholder: |
+        **English**:
+        When I...[describe action]  
+        The system...[describe unexpected behavior]  
+        
+        **中文**:
+        当我执行...[描述操作]  
+        系统出现...[描述异常现象]
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment/环境信息"
+      description: |
+        **English**: System configuration details  
+        **中文**: 系统配置信息
+      placeholder: |
+        - OS: [e.g. Ubuntu 22.04]  
+        - Python Version: [e.g. 3.10.12]  
+        - CLI Version: [e.g. llm-hub v0.4.2]  
+        
+        - 操作系统: [例: Ubuntu 22.04]  
+        - Python 版本: [例: 3.10.12]  
+        - CLI 版本: [例: llm-hub v0.4.2]
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to Reproduce/复现步骤"
+      description: |
+        **English**: Exact steps to reproduce the issue  
+        **中文**: 问题复现的具体步骤
+      placeholder: |
+        1. Run command '...'
+        2. Navigate to '...'
+        3. See error
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected vs Actual Behavior/预期与实际情况"
+      description: |
+        **English**: What should happen vs what actually happens  
+        **中文**: 预期结果与实际结果对比
+      placeholder: |
+        **Expected/预期**:
+        Should display confirmation message
+        
+        **Actual/实际**:
+        Shows error 500
+        
+        **Screenshots/截图**:
+        [If applicable/如有截图请附上]
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity Level/严重程度"
+      options:
+        - "🚨 System Crash/系统崩溃"
+        - "⚠️ Major Function Broken/主要功能失效"
+        - "🛠️ Partial Malfunction/部分功能异常"
+        - "📝 Cosmetic Issue/界面显示问题"
+
+  - type: checkboxes
+    id: confidentiality
+    attributes:
+      label: "Confirmation/确认声明"
+      options:
+        - label: "I confirm this is a system-level issue (not project-specific)/我确认这是系统级问题(非具体项目问题)"
