@@ -1,0 +1,12 @@
+{
+  "name": "test2",
+  "authors": [],
+  "created": "2025-04-18T22:56:37.906395+08:00",
+  "ports": {
+    "default": "8000:8000"
+  },
+  "env_vars": {},
+  "tags": [],
+  "image": "",
+  "version": "0.0.0"
+}
