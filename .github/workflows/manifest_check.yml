@@ -5,6 +5,10 @@ on:
       - 'projects/**'
     branches:
       - main
+  pull_request:
+    types: [closed]
+    paths: ['projects/**']
+    branches: [main]
 
 jobs:
   validate:
@@ -14,6 +18,15 @@ jobs:
         with:
             token: ${{ secrets.PAT_ADMIN }}
             fetch-depth: 2
+            ref: ${{ github.event.pull_request.merged && 'main' || github.ref }}
+  
+      - name: Check if Merged
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        run: |
+          if [ "${{ github.event.pull_request.merged }}" != "true" ]; then
+            echo "PR closed without merging - exiting"
+            echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
+          fi
 
       - name: Fetch Commit Author
         id: commit-author
