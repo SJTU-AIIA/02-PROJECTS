@@ -73,13 +73,18 @@ jobs:
             echo "::endgroup::"
           done
 
+      - name: Update Registry and Markdown
+        if: steps.affected-project.outputs.projects
+        run: |
           python .github/plugins/update_registry.py
+          python .github/plugins/generate_registry_md.py
           git config --global user.name "GitHub Bot"
           git config --global user.email "actions@github.com"
           git add projects/_registry.json
+          git add projects/REGISTRY.md
           git commit -m "[CLI] Update registry for ${{ steps.affected-project.outputs.projects }}"  # update registry only if actual files are affected
           git push
-
+    
       - name: Skip notice
         if: env.SKIP_VALIDATION == 'true'
         run: echo "::notice::Skipping validation - no project manifests were modified"
