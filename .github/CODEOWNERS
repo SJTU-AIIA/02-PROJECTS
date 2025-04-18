@@ -6,3 +6,8 @@
 # Critical files - only admins
 /.github/ @SJTU-AIIA/admins
 /projects/.template/ @SJTU-AIIA/admins
+
+# Projects are open for everyone
+/projects/** *
+
+/projects/_registry.json @SJTU-AIIA/admins
