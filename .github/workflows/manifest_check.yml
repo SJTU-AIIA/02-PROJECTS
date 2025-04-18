@@ -72,7 +72,6 @@ jobs:
         run: echo "::notice::Skipping validation - no project manifests were modified"
 
   validate-push-privileges:
-    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
