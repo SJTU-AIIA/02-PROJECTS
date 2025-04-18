@@ -4,10 +4,26 @@
       "authors": [
         "DysonFabienSun"
       ],
+      "created": "2025-04-18T22:56:37.906395+08:00",
+      "env_vars": {},
+      "image": "",
+      "last_updated": "2025-04-18T22:56:44.796067+08:00",
+      "name": "test2",
+      "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/test2",
+      "ports": {
+        "default": "8000:8000"
+      },
+      "tags": [],
+      "version": "0.0.0"
+    },
+    {
+      "authors": [
+        "DysonFabienSun"
+      ],
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
       "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
-      "last_updated": "2025-04-17T23:29:07.330711+08:00",
+      "last_updated": "2025-04-18T22:56:44.796118+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {

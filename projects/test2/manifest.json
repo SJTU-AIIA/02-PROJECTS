@@ -1,12 +1,14 @@
 {
-  "name": "test2",
-  "authors": [],
+  "authors": [
+    "DysonFabienSun"
+  ],
   "created": "2025-04-18T22:56:37.906395+08:00",
+  "env_vars": {},
+  "image": "",
+  "name": "test2",
   "ports": {
     "default": "8000:8000"
   },
-  "env_vars": {},
   "tags": [],
-  "image": "",
   "version": "0.0.0"
 }
