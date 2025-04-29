@@ -5,10 +5,6 @@ on:
       - 'projects/**'
     branches:
       - main
-  pull_request:
-    types: [closed]
-    paths: ['projects/**']
-    branches: [main]
 
 jobs:
   validate:
