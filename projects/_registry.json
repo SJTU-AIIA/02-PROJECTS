@@ -7,7 +7,7 @@
       "created": "2025-04-18T22:56:37.906395+08:00",
       "env_vars": {},
       "image": "",
-      "last_updated": "2025-04-18T22:56:54.034293+08:00",
+      "last_updated": "2025-04-29T11:27:45.908941+08:00",
       "name": "test2",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/test2",
       "ports": {
@@ -23,7 +23,7 @@
       "created": "2025-04-17T17:28:50.421630+08:00",
       "env_vars": {},
       "image": "ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0",
-      "last_updated": "2025-04-18T22:56:54.034340+08:00",
+      "last_updated": "2025-04-29T11:27:45.909009+08:00",
       "name": "dfs-rag-streamlit-demo",
       "path": "/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo",
       "ports": {

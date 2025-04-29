@@ -2,8 +2,8 @@
 
 | Project | Authors | Version | Tags | Last Updated | Links |
 |---------|---------|---------|------|--------------|-------|
-| test2 | @DysonFabienSun | 0.0.0 |  | 2025-04-18 | [Folder](/home/runner/work/02-PROJECTS/02-PROJECTS/projects/test2) \| [Image]() |
-| dfs-rag-streamlit-demo | @DysonFabienSun | 6.0.0 | `rag`, `streamlit`, `llm` | 2025-04-18 | [Folder](/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo) \| [Image](ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0) |
+| test2 | @DysonFabienSun | 0.0.0 |  | 2025-04-29 | [Folder](/home/runner/work/02-PROJECTS/02-PROJECTS/projects/test2) \| [Image]() |
+| dfs-rag-streamlit-demo | @DysonFabienSun | 6.0.0 | `rag`, `streamlit`, `llm` | 2025-04-29 | [Folder](/home/runner/work/02-PROJECTS/02-PROJECTS/projects/dfs-rag-streamlit-demo) \| [Image](ghcr.io/sjtu-aiia/dfs-rag-streamlit-demo:6.0.0) |
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
